@@ -1,3 +1,3 @@
-app:
-    resource: '@AppBundle/Controller/'
-    type: annotation
+ecocolocs:
+    resource: "@EcocolocsBundle/Resources/config/routing.yml"
+    prefix:   /

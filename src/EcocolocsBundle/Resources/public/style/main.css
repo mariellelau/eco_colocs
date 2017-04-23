@@ -1,0 +1,27 @@
+nav, .page-footer{
+    background-color:#00727F !important;
+}
+
+a.btn{
+    margin: 10px;
+}
+
+h1 {
+    text-align:center;
+    color: #00727F;
+    font-size:40px;
+}
+
+footer {
+    color:white;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column
+}
+
+main {
+    flex: 1 0 auto;
+}

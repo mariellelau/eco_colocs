@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+   <div class="container center">
+       <h1>{{ colocation.nom }}</h1>
+
+       <div>
+           {{ colocation.description }}
+       </div>
+
+
+        <div>
+            <a class="btn waves-effect" href="{{ path('colocation_index') }}">Liste des colocations</a>
+
+        </div>
+        <div>
+            <a class="btn waves-effect" href="{{ path('colocation_edit', { 'id': colocation.id }) }}">Modifier cette colocation</a>
+
+        </div>
+   </div>
+{% endblock %}

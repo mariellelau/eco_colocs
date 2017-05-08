@@ -59,7 +59,7 @@ class ColocationController extends Controller
     {
         $deleteForm = $this->createDeleteForm($colocation);
 
-        return $this->render('@Mvt/colocation/show.html.twig', array(
+        return $this->render("@Ecocolocs/colocation/show.html.twig", array(
             'colocation' => $colocation,
             'delete_form' => $deleteForm->createView(),
         ));
@@ -81,7 +81,7 @@ class ColocationController extends Controller
             return $this->redirectToRoute('colocation_edit', array('id' => $colocation->getId()));
         }
 
-        return $this->render('@Mvt/colocation/edit.html.twig', array(
+        return $this->render('@Ecocolocs/colocation/edit.html.twig', array(
             'colocation' => $colocation,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -100,7 +100,7 @@ class ColocationController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->remove($colocation);
-            $em->flush($colocation);
+            $em->flush();
         }
 
         return $this->redirectToRoute('colocation_index');

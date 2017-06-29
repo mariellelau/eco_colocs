@@ -15,3 +15,7 @@ EcocolocsBundle\Entity\Colocation:
         description:
             type: text
     lifecycleCallbacks: {  }
+    oneToMany:
+        users:
+            targetEntity: EcocolocsBundle\Entity\User
+            mappedBy: colocation

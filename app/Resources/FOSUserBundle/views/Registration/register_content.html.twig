@@ -9,31 +9,34 @@
 </div>
 <div class="row no-padding">
     <div class="input-field col s12">
-        {{ form_label(form.email) }}
-        {{ form_widget(form.email) }}
+        {{ form_label(form.mail) }}
+        {{ form_widget(form.mail) }}
     </div>
-    {{ form_errors(form.email) }}
+    {{ form_errors(form.mail) }}
 </div>
 <div class="row no-padding">
     <div class="input-field col s12">
-        {{ form_label(form.motDePasse1) }}
-        {{ form_widget(form.motDePasse1) }}
+        {{ form_row(form.motDePasse.first) }}
     </div>
-    {{ form_errors(form.motDePasse1) }}
 </div>
 <div class="row no-padding">
     <div class="input-field col s12">
-        {{ form_label(form.motDePasse2) }}
-        {{ form_widget(form.motDePasse2) }}
+        {{ form_row(form.motDePasse.second) }}
     </div>
-    {{ form_errors(form.motDePasse2) }}
 </div>
 <div class="row no-padding">
     <div class="input-field col s12">
-        {{ form_label(form.coloc) }}
-        {{ form_widget(form.coloc) }}
+{{ form_label(form.colocation) }}
+        <select>
+        {% for colocation in colocations %}
+                <option value="">
+                    {{ form_label(form.colocation) }}
+                </option>
+        {% endfor %}
+        </select>
+        {{ form_widget(form.colocation) }}
     </div>
-    {{ form_errors(form.coloc) }}
+    {{ form_errors(form.colocation) }}
 </div>
 <div align="center" class="button-wrap">
     <button class="btn-large waves-effect waves-light" type="submit" name="action">

@@ -2,11 +2,13 @@
 
 namespace EcocolocsBundle\Form\Type;
 
-use Doctrine\ORM\Mapping\Entity;
-use EcocolocsBundle\EcocolocsBundle;
-use EcocolocsBundle\Entity\User;
-use FOS\UserBundle\Util\LegacyFormHelper;
+use Doctrine\ORM\EntityRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -18,14 +20,25 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nom')
-            ->add('motDePasse',array(
-                'first_options' => array('label' => 'form.password'),
-                'second_options' => array('label' => 'form.password_confirmation'),
-                'invalid_message' => 'fos_user.password.mismatch',))
-            ->add('email')
-            ->add('coloc');
-        ;
+            ->add('nom', TextType::class, array(
+                'label' => 'Ton prénom',
+                'required' => true))
+            ->add('motDePasse', RepeatedType::class, array(
+                'type' => PasswordType::class,
+                'invalid_message' => 'Les 2 mots de passe doivent être identiques',
+                'required' => true,
+                'first_options'  => array('label' => 'Mot de passe'),
+                'second_options' => array('label' => 'Répéter le mot de passe')))
+            ->add('mail', EmailType::class, array(
+                'label' => 'Adresse email',
+                'required' => true,
+                'mapped' => false
+            ))
+            ->add('colocation', EntityType::class, array (
+                'class' => 'EcocolocsBundle\Entity\Colocation',
+                'required' => true,
+                'choice_label' => 'nom',
+            ));
     }
 
     /**

@@ -1,0 +1,16 @@
+EcocolocsBundle\Entity\Annonce:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        titre:
+            type: string
+            length: 255
+        description:
+            type: text
+    lifecycleCallbacks: {  }

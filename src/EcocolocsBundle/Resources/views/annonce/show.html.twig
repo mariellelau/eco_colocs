@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+   <div class="container center">
+       <h1>{{ annonce.titre }}</h1>
+
+       <div>
+           {{ annonce.description }}
+       </div>
+
+
+        <div>
+            <a class="btn waves-effect" href="{{ path('annonce_index') }}">Liste des annonces</a>
+
+        </div>
+        <div>
+            <a class="btn waves-effect" href="{{ path('annonce_edit', { 'id': colocation.id }) }}">Modifier cette annonce</a>
+
+        </div>
+   </div>
+{% endblock %}

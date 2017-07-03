@@ -3,12 +3,19 @@
 namespace EcocolocsBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use UserBundle\Entity\User;
 
 /**
  * Colocation
  */
 class Colocation
 {
+
+    public function __toString()
+    {
+        return $this->getNom();
+    }
+
     /**
      * @var int
      */
@@ -96,11 +103,11 @@ class Colocation
     /**
      * Add user
      *
-     * @param \EcocolocsBundle\Entity\User $user
+     * @param User $user
      *
      * @return Colocation
      */
-    public function addUser(\EcocolocsBundle\Entity\User $user)
+    public function addUser(User $user)
     {
         $this->users[] = $user;
 
@@ -110,9 +117,9 @@ class Colocation
     /**
      * Remove user
      *
-     * @param \EcocolocsBundle\Entity\User $user
+     * @param \userBundle\Entity\User $user
      */
-    public function removeUser(\EcocolocsBundle\Entity\User $user)
+    public function removeUser(\UserBundle\Entity\User $user)
     {
         $this->users->removeElement($user);
     }

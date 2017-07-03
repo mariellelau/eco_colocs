@@ -2,8 +2,6 @@
 
 namespace EcocolocsBundle\Form\Type;
 
-use Doctrine\ORM\EntityRepository;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -20,25 +18,26 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nom', TextType::class, array(
+            ->add('username', TextType::class, array(
                 'label' => 'Ton prénom',
                 'required' => true))
-            ->add('motDePasse', RepeatedType::class, array(
+            ->add('password', RepeatedType::class, array(
                 'type' => PasswordType::class,
                 'invalid_message' => 'Les 2 mots de passe doivent être identiques',
                 'required' => true,
                 'first_options'  => array('label' => 'Mot de passe'),
                 'second_options' => array('label' => 'Répéter le mot de passe')))
-            ->add('mail', EmailType::class, array(
+            ->add('email', EmailType::class, array(
                 'label' => 'Adresse email',
                 'required' => true,
                 'mapped' => false
             ))
-            ->add('colocation', EntityType::class, array (
+/*            ->add('colocation', EntityType::class, array (
                 'class' => 'EcocolocsBundle\Entity\Colocation',
-                'required' => true,
+                'required' => false,
                 'choice_label' => 'nom',
-            ));
+
+            ))*/;
     }
 
     /**
@@ -47,7 +46,7 @@ class RegistrationFormType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'EcocolocsBundle\Entity\User',
+            'data_class' => 'UserBundle\Entity\User',
             'csrf_token_id' => 'registration'));
     }
 

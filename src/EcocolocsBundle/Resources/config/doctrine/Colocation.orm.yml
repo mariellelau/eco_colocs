@@ -17,5 +17,5 @@ EcocolocsBundle\Entity\Colocation:
     lifecycleCallbacks: {  }
     oneToMany:
         users:
-            targetEntity: EcocolocsBundle\Entity\User
+            targetEntity: UserBundle\Entity\User
             mappedBy: colocation

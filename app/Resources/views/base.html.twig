@@ -16,17 +16,28 @@
     <body>
         <nav>
             <div class="row nav-wrapper">
-                <div class="offset-s1 col s3">
-                    <a href="{{ path('ecocolocs_homepage') }}">Accueil</a>
+                <div class="row no-margin">
+                    <div class="offset-s1 col s3">
+                        <a href="{{ path('ecocolocs_homepage') }}">Accueil</a>
+                    </div>
+                    <div class="col s3">
+                        <a href="{{ path('ecocolocs_manifeste') }}">Le mouvement</a>
+                    </div>
+                    <div class="col s3">
+                        <a href="{{ path('colocation_index') }}">Les colocs</a>
+                    </div>
+                    <div class="col s2">
+                        <a href="{{ path('ecocolocs_contact') }}">Contact</a>
+                    </div>
                 </div>
-                <div class="col s3">
-                    <a href="{{ path('ecocolocs_manifeste') }}">Le mouvement</a>
-                </div>
-                <div class="col s3">
-                    <a href="{{ path('colocation_index') }}">Les colocs</a>
-                </div>
-                <div class="col s2">
-                    <a href="{{ path('ecocolocs_contact') }}">Contact</a>
+                <div class="row">
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        Connecté en tant que {{ app.user.username }}
+                        -
+                        <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+                    {% else %}
+                        <a href="{{ path('fos_user_security_login') }}">Connexion</a>
+                    {% endif %}
                 </div>
             </div>
         </nav>

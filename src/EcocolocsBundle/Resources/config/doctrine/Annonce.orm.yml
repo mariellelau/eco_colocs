@@ -11,6 +11,11 @@ EcocolocsBundle\Entity\Annonce:
         titre:
             type: string
             length: 255
+        autheur:
+            type: string
+            length: 255
+        date:
+            type: date
         description:
             type: text
     lifecycleCallbacks: {  }

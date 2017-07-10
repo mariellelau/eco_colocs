@@ -40,7 +40,7 @@ class AnnonceController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($annonce);
-            $em->flush($annonce);
+            $em->flush();
 
             return $this->redirectToRoute('annonce_show', array('id' => $annonce->getId()));
         }

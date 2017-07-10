@@ -38,7 +38,7 @@ class Annonce
     /**
      * Set nom
      *
-     * @param string $titre
+     * @param string $nom
      * @return $this
      */
     public function setTitre($titre)
@@ -79,63 +79,5 @@ class Annonce
     public function getDescription()
     {
         return $this->description;
-    }
-    /**
-     * @var string
-     */
-    private $autheur;
-
-    /**
-     * @var \DateTime
-     */
-    private $date;
-
-
-    /**
-     * Set autheur
-     *
-     * @param string $autheur
-     *
-     * @return Annonce
-     */
-    public function setAutheur($autheur)
-    {
-        $this->autheur = $autheur;
-
-        return $this;
-    }
-
-    /**
-     * Get autheur
-     *
-     * @return string
-     */
-    public function getAutheur()
-    {
-        return $this->autheur;
-    }
-
-    /**
-     * Set date
-     *
-     * @param \DateTime $date
-     *
-     * @return Annonce
-     */
-    public function setDate($date)
-    {
-        $this->date = $date;
-
-        return $this;
-    }
-
-    /**
-     * Get date
-     *
-     * @return \DateTime
-     */
-    public function getDate()
-    {
-        return $this->date;
     }
 }

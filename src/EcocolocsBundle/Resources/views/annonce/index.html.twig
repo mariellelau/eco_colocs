@@ -1,28 +1,28 @@
-{% extends 'base.html.twig' %}
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Accueil - {{ parent() }}
+{% endblock %}
 
 {% block body %}
-    <h1>Les annonces</h1>
-    <div class="container">
-        <table>
-            <thead>
-            <tr>
-                <th>Titre</th>
-                <th>Description</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for colocation in colocations %}
-                <tr>
-                    <td><a href="{{ path('annonce_show', { 'id': annonce.id }) }}">{{ annonce.titre }}</td>
-                    <td>{{ annonce.description }}</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+
+    <h2>Liste des annonces</h2>
+
+    <ul>
+        {% for annonce in annonces %}
+            <li>
+                <a href="{{ path('annonce_show', {'id': annonce.id}) }}">
+                    {{ annonce.titre }}
+                </a>
+                par {{ annonce.autheur }},
+                le {{ annonce.date|date('d/m/Y') }}
+            </li>
+        {% else %}
+            <li>Pas (encore !) d'annonces</li>
+        {% endfor %}
+    </ul>
+    <div class="center">
+        <a class="btn waves-effect" href="{{ path('annonce_new') }}">Ajouter une nouvelle annonce</a>
     </div>
 
-<div class="center">
-    <a class="btn waves-effect" href="{{ path('annonce_new') }}">Ajouter une nouvelle annonce</a>
-
-</div>
 {% endblock %}

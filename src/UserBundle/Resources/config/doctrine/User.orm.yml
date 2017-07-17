@@ -9,3 +9,6 @@ UserBundle\Entity\User:
             generator:
                 strategy: AUTO
     lifecycleCallbacks: {  }
+    manyToOne:
+        colocation:
+          targetEntity: EcocolocsBundle\Entity\Colocation

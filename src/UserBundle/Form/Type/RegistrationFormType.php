@@ -1,7 +1,8 @@
 <?php
 
-namespace EcocolocsBundle\Form\Type;
+namespace UserBundle\Form\Type;
 
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -32,12 +33,9 @@ class RegistrationFormType extends AbstractType
                 'required' => true,
                 'mapped' => false
             ))
-/*            ->add('colocation', EntityType::class, array (
-                'class' => 'EcocolocsBundle\Entity\Colocation',
-                'required' => false,
-                'choice_label' => 'nom',
-
-            ))*/;
+            ->add('colocation', EntityType::class, array (
+                'class' => 'EcocolocsBundle\Entity\Colocation'
+            ));
     }
 
     /**

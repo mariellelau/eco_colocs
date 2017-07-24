@@ -12,6 +12,20 @@ EcocolocsBundle\Entity\Colocation:
         nom:
             type: string
             length: 255
+        photo:
+            type: string
+            length: 255
+        photoFichier:
         description:
             type: text
+        habitant:
+            type: text
+        action:
+            type: text
+#        picto
+        page:
+            type: string
+            length: 255
+#        date:
+#            type: date
     lifecycleCallbacks: {  }

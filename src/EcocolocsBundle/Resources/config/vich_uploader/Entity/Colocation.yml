@@ -1,0 +1,4 @@
+EcocolocsBundle\Entity\Colocation:
+    image:
+        mapping:           colocs_logo # required
+        filename_property: photo     # required

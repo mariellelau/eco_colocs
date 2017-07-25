@@ -71,20 +71,18 @@ class ColocationController extends Controller
      */
     public function editAction(Request $request, Colocation $colocation)
     {
-        $deleteForm = $this->createDeleteForm($colocation);
         $editForm = $this->createForm('EcocolocsBundle\Form\ColocationType', $colocation);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('colocation_edit', array('id' => $colocation->getId()));
+            return $this->redirectToRoute('colocation_show', array('id' => $colocation->getId()));
         }
 
         return $this->render('@Ecocolocs/colocation/edit.html.twig', array(
             'colocation' => $colocation,
             'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
         ));
     }
 

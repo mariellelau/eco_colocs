@@ -13,7 +13,3 @@ ecocolocs_contact:
 ecocolocs_manifeste:
     path:     /mouvement
     defaults: { _controller: EcocolocsBundle:Default:manifeste }
-
-ecocolocs_annonce:
-    resource: "@EcocolocsBundle/Resources/config/routing/annonce.yml"
-    prefix:   /annonces

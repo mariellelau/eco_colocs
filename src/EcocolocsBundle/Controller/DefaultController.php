@@ -8,7 +8,13 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('@Ecocolocs/default/index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+
+        $colocations = $em->getRepository('EcocolocsBundle:Colocation')->findAll();
+
+        return $this->render('@Ecocolocs/default/index.html.twig', array(
+            'colocations' => $colocations,
+        ));
     }
 
     public function contactAction()

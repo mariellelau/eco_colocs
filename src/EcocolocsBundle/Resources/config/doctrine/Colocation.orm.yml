@@ -12,6 +12,22 @@ EcocolocsBundle\Entity\Colocation:
         nom:
             type: string
             length: 255
-        description:
-            type: text
+            unique: true
+        adresse:
+            type: string
+            length: 255
+            nullable: true
+        codePostal:
+            type: integer
+            nullable: true
+        ville:
+            type: string
+            length: 255
+            nullable: true
+        longitude:
+            type: string
+            length: 25
+        latitude:
+            type: string
+            length: 25
     lifecycleCallbacks: {  }

@@ -1,6 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+        <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4.4/leaflet.css" />
+        <script src="http://cdn.leafletjs.com/leaflet-0.4.4/leaflet.js"></script>
+
     <div class="container">
         <h1>Mouvement des Colocs en transition</h1>
         <div class="center ">
@@ -25,5 +28,39 @@
             View Larger Map
         </a>
     </small>#}
+
+    <h1>Site des éco-colocs</h1>
+    <div id="map" style="height:100%;" class="leaflet-container-default"></div>
+
+        <script>
+            var map;
+            /* initialisation de la fonction initmap */
+            function initmap() {
+                // paramÃ©trage de la carte
+                map = new L.Map('map');
+                // crÃ©ation des "tiles" avec open street map
+                var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+                var osmAttrib='Map data de OpenStreetMap';
+                var osm = new L.TileLayer(osmUrl, {minZoom: 2, maxZoom: 10, attribution: osmAttrib});           
+                // on centre sur la France
+                map.setView(new L.LatLng(46.85, 2.3518),6);
+                map.addLayer(osm);
+            }
+
+            function addmarker(){
+                mark = new L.marker([46.85,2.3518]).addTo(map)
+                .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+                mark2 = new L.marker([47.85,2.3518]).addTo(map)
+                .bindPopup('test.')
+            }
+            function openpopup(){
+                mark.openPopup();
+            }
+            /* on va procÃ©der Ã  l'initialisation de la carte */
+            initmap();
+            addmarker();
+            openpopup();
+        </script>
+
 
 {% endblock body %}
